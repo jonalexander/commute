@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import stateList from '../assets/StateList'
+import fetchData from '../actions/fetchData.js'
 
-export default class SearchBar extends Component {
-
+class SearchBar extends Component {
   constructor() {
     super()
     this.state = { query: "" }
+    // "boSton, MA"
   }
 
   updateState(event){
@@ -14,12 +17,12 @@ export default class SearchBar extends Component {
   }
 
   handleSubmit(event){
-    debugger
     event.preventDefault()
-    var city = event.target[0].value[0].toUpperCase() + event.target[0].value.slice(1).toLowerCase()
-    var state = event.target[1].value
-    console.log("Success")
 
+    var city = this.state.query.split(',')[0][0].toUpperCase() + this.state.query.split(',')[0].slice(1).toLowerCase()
+    var state = this.state.query.split(',')[1].trim().toUpperCase()
+    // action creator to make API call
+    this.props.fetchData(city, state)
   }
 
   displayInput(){
@@ -36,18 +39,9 @@ export default class SearchBar extends Component {
 
     return(
       <div>
-        <form onSubmit={ this.handleSubmit }>
-          <label>City</label>
-          <input style={ inputStyle } type="text" id="city-name" placeholder="Enter City" onChange={this.updateState.bind(this)} />
-          <label>State</label>
-          <select>
-              {stateList.map( (state) => {
-               return (
-                 <option value={state}> {state} </option>
-                )
-               })
-              }
-          </select>
+        <form onSubmit={ this.handleSubmit.bind(this) }>
+          <label>City, State</label>
+          <input style={ inputStyle } type="text" id="city-name" placeholder="Enter City & State" onChange={this.updateState.bind(this)} />
           <button style= { buttonStyle } type="submit"> Submit </button>
         </form>
       </div>
@@ -63,4 +57,11 @@ export default class SearchBar extends Component {
   }
 }
 
+const ConnectedSearchBar = connect(null, mapDispatchToProps)(SearchBar)
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators( { fetchData }, dispatch)
+}
+
+export default ConnectedSearchBar
 // mapdispatchtoprops to change state
