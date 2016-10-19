@@ -8,6 +8,7 @@ import './index.css';
 
 let store = createStore(rootReducer)
 
+
 ReactDOM.render(
   <App />,
   document.getElementById('root')
