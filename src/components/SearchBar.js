@@ -19,12 +19,24 @@ export default class SearchBar extends Component {
 
 
   displayInput(){
+    var inputStyle = {
+      border: '2px solid red',
+      borderRadius: '4px'
+    }
+
+    var buttonStyle = {
+      borderRadius: '8px',
+      backgroundColor: 'blue',
+      color: 'white'
+    }
+
     return(
+
       <div>
         <form onSubmit={ this.handleSubmit }>
           <label>City</label>
-          <input type="text" id="city-name" placeholder="Enter City" onChange={this.updateState.bind(this)} />
-          <button type="submit"> Submit </button>
+          <input style={ inputStyle } type="text" id="city-name" placeholder="Enter City" onChange={this.updateState.bind(this)} />
+          <button style= { buttonStyle } type="submit"> Submit </button>
         </form>
       </div>
 

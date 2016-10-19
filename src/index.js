@@ -5,11 +5,14 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
 import './index.css';
+// import react router
 
 let store = createStore(rootReducer)
 
 
 ReactDOM.render(
-  <App />,
+  <Provider store={ store }>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
