@@ -6,7 +6,7 @@ export default function fetchData(city, state) {
   return axios.get(url).then( (response) => {
     debugger
     return {
-      type: 'ADD',
+      type: 'ADD_DATA',
       payload: response.data.almanac
     }
   })
