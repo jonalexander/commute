@@ -6,3 +6,4 @@ export default function weatherReducer(state = {weatherData: []}, action) {
       return state
   }
 }
+//.
