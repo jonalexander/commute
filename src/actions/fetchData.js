@@ -1,11 +1,18 @@
 import axios from 'axios';
-import key from '../assets/api_key'
+// import key from '../assets/api_key'
 
 export default function fetchData(city, state) {
+  //https://crossorigin.me/
 
-  const url = `https://crossorigin.me/http://api.wunderground.com/api/${key}/almanac/q/${state}/${city}.json`
-  return axios.get(url).then( (response) => {
-    console.log('YEZZZ')
+  //const url = `http://api.wunderground.com/api/${key}/almanac/q/${state}/${city}.json`
+  return axios.get('http://localhost:3006/get-weather-data', {
+    params: {
+      city: city,
+      state: state
+    }
+  })
+  .then( (response) => {
+    debugger
     return {
       type: 'ADD_DATA',
       payload: response.data.almanac
