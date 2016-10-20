@@ -7,7 +7,7 @@ debugger
     return(
       <div className="result-row">
         <div className="result-cell">
-          <h3> { this.props.type === 'high' ?  'High' : 'Low' } </h3>
+          <h3> { String(this.props.type) } </h3>
         </div>
         <div className="result-cell">
           Normal: { this.props.info.normal.F }

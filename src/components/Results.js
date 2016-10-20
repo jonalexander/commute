@@ -7,14 +7,20 @@ class Results extends Component {
   displayRows() {
     debugger
     if ( Object.keys(this.props.weatherData.weatherData).length >= 1 ){
-      return <ResultRow type={'high'} info={this.props.weatherData.weatherData.almanac.temp_high} />
+      return (
+        <div>
+          <ResultRow type={'High'} info={this.props.weatherData.weatherData.almanac.temp_high} />
+          <ResultRow type={'Low'} info={this.props.weatherData.weatherData.almanac.temp_low} />
+
+        </div>
+      )
     }
   }
 
   render() {
     return(
       <div>
-        <div> { this.displayRows() } </div>
+        { this.displayRows() }
       </div>
     )
   }
