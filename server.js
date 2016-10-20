@@ -14,11 +14,14 @@ app.listen(3006, function () {
 // app.get('/yelpResults/:type/:lat/:lng/:radius/:limit/',  (req, res) => {
 // http://api.wunderground.com/api/4c9321c345fc142e/almanac/q/MA/Boston.json
 app.get('/get-weather-data',  (req, res) => {
-  var state = req.params.state
-  var city =  req.params.city
+  var state = req.query.state
+  var city =  req.query.city
+  console.log(state)
+  console.log(city)
 
   axios.get(`http://api.wunderground.com/api/4c9321c345fc142e/almanac/q/${state}/${city}.json`)
     .then( (response) => {
+      // console.log(response.data)
       res.send(JSON.stringify(response.data))
     })
     .catch( (err) => {

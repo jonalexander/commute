@@ -12,10 +12,9 @@ export default function fetchData(city, state) {
     }
   })
   .then( (response) => {
-    debugger
     return {
       type: 'ADD_DATA',
-      payload: response.data.almanac
+      payload: response.data
     }
   })
 }
