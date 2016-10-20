@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import stateList from '../assets/StateList'
+// import stateList from '../assets/StateList'
 import fetchData from '../actions/fetchData.js'
 
 class SearchBar extends Component {
@@ -42,7 +42,7 @@ class SearchBar extends Component {
         <form onSubmit={ this.handleSubmit.bind(this) }>
           <label>City, State</label>
           <input style={ inputStyle } type="text" id="city-name" placeholder="Enter City & State" onChange={this.updateState.bind(this)} />
-          <button style= { buttonStyle } type="submit"> Submit </button>
+          <button style={ buttonStyle } type="submit"> Submit </button>
         </form>
       </div>
     )
