@@ -8,20 +8,20 @@ import rootReducer from './reducers/rootReducer';
 import './index.css';
 // import react router
 
-// let storewithmiddleware = applyMiddleware(reduxPromise)(createStore)(rootReducer)(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+let storewithmiddleware = applyMiddleware(reduxPromise)(createStore)(rootReducer)
 
-export default function configureStore() {
-  const finalCreateStore = compose(
-    applyMiddleware(reduxPromise),
-    (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-  )(createStore);
-
-  const store = finalCreateStore(rootReducer);
-  return store;
-}
+// export default function configureStore() {
+//   const finalCreateStore = compose(
+//     applyMiddleware(reduxPromise),
+//     (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+//   )(createStore);
+//
+//   const store = finalCreateStore(rootReducer);
+//   return store;
+// }
 
 ReactDOM.render(
-  <Provider store={ configureStore()  }>
+  <Provider store={ storewithmiddleware }>
     <App />
   </Provider>,
   document.getElementById('root')
