@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 export default class ResultRow extends Component {
   render() {
+      debugger
     return(
       <div>
         result row

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class Results extends Component {
 
   displayRows() {
-    if (typeof this.props.weatherData !== "undefined"){
+    if (typeof this.props.weatherData !== "undefined" && this.props.weatherData.weatherData.length > 0){
       return this.props.weatherData.weatherData.map( (info) => {
           <ResultRow info={ info } />
       })
@@ -13,7 +13,6 @@ class Results extends Component {
   }
 
   render() {
-    // debugger
     return(
       <div> { this.displayRows() } </div>
     )

@@ -1,23 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, applyMiddleware, compose } from 'redux';
+import {createStore, applyMiddleware, compose } from 'redux';
 import reduxPromise from 'redux-promise';
 import { Provider } from 'react-redux';
 import rootReducer from './reducers/rootReducer';
-import DevTools from './components/DevTools';
 import './index.css';
 // import react router
 
+// let storewithmiddleware = applyMiddleware(reduxPromise)(createStore)(rootReducer)(window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
-function configureStore() {
+export default function configureStore() {
   const finalCreateStore = compose(
     applyMiddleware(reduxPromise),
-    DevTools.instrument()
+    (window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
   )(createStore);
 
   const store = finalCreateStore(rootReducer);
-
   return store;
 }
 
