@@ -4,18 +4,30 @@ export default class ResultRow extends Component {
   render() {
 
 debugger
+
+  const resultRow = {
+    display: 'table-row',
+    width: '75%',
+    border: '1px'
+  }
+
+  const resultCell = {
+    display: 'table-cell',
+    width: '25%'
+  }
+
     return(
-      <div className="result-row">
-        <div className="result-cell">
+      <div style={ resultRow }>
+        <div style={ resultCell }>
           <h3> { String(this.props.type) } </h3>
         </div>
-        <div className="result-cell">
+        <div style={ resultCell }>
           Normal: { this.props.info.normal.F }
         </div>
-        <div className="result-cell">
+        <div style={ resultCell }>
           Record: { this.props.info.record.F }
         </div>
-        <div className="result-cell">
+        <div style={ resultCell }>
           Record Year: { this.props.info.recordyear }
         </div>
       </div>

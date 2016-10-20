@@ -11,7 +11,6 @@ class Results extends Component {
         <div>
           <ResultRow type={'High'} info={this.props.weatherData.weatherData.almanac.temp_high} />
           <ResultRow type={'Low'} info={this.props.weatherData.weatherData.almanac.temp_low} />
-
         </div>
       )
     }
