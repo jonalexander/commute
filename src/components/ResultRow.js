@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 export default class ResultRow extends Component {
   render() {
 
-debugger
-
   const resultRow = {
     display: 'table-row',
     width: '75%',
@@ -13,7 +11,9 @@ debugger
 
   const resultCell = {
     display: 'table-cell',
-    width: '25%'
+    width: '25%',
+    textAlign: 'center',
+    textVerical: 'top'
   }
 
     return(
@@ -22,13 +22,19 @@ debugger
           <h3> { String(this.props.type) } </h3>
         </div>
         <div style={ resultCell }>
-          Normal: { this.props.info.normal.F }
+          { this.props.info.normal.F }
+          <br/>
+          Normal
         </div>
         <div style={ resultCell }>
-          Record: { this.props.info.record.F }
+          { this.props.info.record.F }
+          <br/>
+          Record
         </div>
         <div style={ resultCell }>
-          Record Year: { this.props.info.recordyear }
+          { this.props.info.recordyear }
+          <br/>
+          Record Year
         </div>
       </div>
     )

@@ -2,13 +2,21 @@ import React, { Component } from 'react';
 import ResultRow from './ResultRow';
 import { connect } from 'react-redux'
 
-class Results extends Component {
+var resultsStyle = {
+  width: '30em',
+  margin: 'auto',
+  color: 'white'
+}
 
+
+class Results extends Component {
   displayRows() {
-    debugger
     if ( Object.keys(this.props.weatherData.weatherData).length >= 1 ){
+
+
+
       return (
-        <div>
+        <div style={ resultsStyle }>
           <ResultRow type={'High'} info={this.props.weatherData.weatherData.almanac.temp_high} />
           <ResultRow type={'Low'} info={this.props.weatherData.weatherData.almanac.temp_low} />
         </div>
@@ -17,6 +25,9 @@ class Results extends Component {
   }
 
   render() {
+
+
+
     return(
       <div>
         { this.displayRows() }

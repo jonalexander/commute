@@ -26,23 +26,48 @@ class SearchBar extends Component {
   }
 
   displayInput(){
+
     var inputStyle = {
-      border: '2px solid red',
-      borderRadius: '4px'
+      display: 'block',
+      border: '2px solid white',
+      borderRadius: '8px',
+      width: '30em',
+      margin: 'auto',
+      padding: '1em',
+      textAlign: 'center',
+      fontSize: '1em',
+      color: 'white',
+      fontFamily: 'Cardo',
+      backgroundColor: 'rgba(123, 144, 149, 0.6)'
     }
 
-    var buttonStyle = {
-      borderRadius: '8px',
-      backgroundColor: 'blue',
+
+    var searchStyle = {
+      marginTop: '10em'
+    }
+
+    var formStyle = {
+      margin: 'auto'
+    }
+
+    var headerStyle = {
+      fontSize: '2em',
+      width: '20em',
+      margin: 'auto',
+      paddingBottom: '.5em',
+      textAlign: 'center',
       color: 'white'
     }
 
     return(
-      <div>
-        <form onSubmit={ this.handleSubmit.bind(this) }>
-          <label>City, State</label>
-          <input style={ inputStyle } type="text" id="city-name" placeholder="Enter City & State" onChange={this.updateState.bind(this)} />
-          <button style={ buttonStyle } type="submit"> Submit </button>
+      <div style={ searchStyle }>
+        <div style={ headerStyle }>
+          Weather Almanac
+        </div>
+        <form style={ formStyle}
+              onSubmit={ this.handleSubmit.bind(this) }
+              >
+            <input style={ inputStyle } type="text" id="city-name" placeholder="Enter Location eg: Boston, MA" onChange={this.updateState.bind(this)} />
         </form>
       </div>
     )
