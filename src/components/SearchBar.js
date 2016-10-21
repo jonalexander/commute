@@ -23,6 +23,7 @@ class SearchBar extends Component {
     var state = this.state.query.split(',')[1].trim().toUpperCase()
     // action creator to make API call
     this.props.fetchData(city, state)
+    this.refs.form.reset()
   }
 
   displayInput(){
@@ -66,6 +67,7 @@ class SearchBar extends Component {
         </div>
         <form style={ formStyle}
               onSubmit={ this.handleSubmit.bind(this) }
+              ref="form"
               >
             <input style={ inputStyle } type="text" id="city-name" placeholder="Enter Location eg: Boston, MA" onChange={this.updateState.bind(this)} />
         </form>

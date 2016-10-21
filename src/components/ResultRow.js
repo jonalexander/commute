@@ -18,6 +18,7 @@ export default class ResultRow extends Component {
 
     return(
       <div style={ resultRow }>
+        <h2> {this.props.info.loc} </h2>
         <div style={ resultCell }>
           <h3> { String(this.props.type) } </h3>
         </div>

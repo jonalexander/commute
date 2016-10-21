@@ -12,6 +12,8 @@ export default function fetchData(city, state) {
     }
   })
   .then( (response) => {
+    response.data.almanac.loc = `${city}, ${state}`
+    debugger
     return {
       type: 'ADD_DATA',
       payload: response.data

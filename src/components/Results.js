@@ -6,6 +6,7 @@ var resultsStyle = {
   width: '30em',
   margin: 'auto',
   color: 'white'
+
 }
 
 
@@ -17,6 +18,7 @@ class Results extends Component {
 
       return (
         <div style={ resultsStyle }>
+          <h2> {this.props.weatherData.weatherData.almanac.loc} </h2>
           <ResultRow type={'High'} info={this.props.weatherData.weatherData.almanac.temp_high} />
           <ResultRow type={'Low'} info={this.props.weatherData.weatherData.almanac.temp_low} />
         </div>
